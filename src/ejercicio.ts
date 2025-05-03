@@ -92,9 +92,8 @@ const stockDispponible = productList.filter((p)=> p.stock > 0)
 console.log(stockDispponible)
 
 // Ejercicio 6
-
-const productoOrdenado = productList.sort()
-console.log("Producto ordenado: ",productoOrdenado)
+const productoOrdenado = productList.sort((a, b) => a.precio - b.precio);
+console.log("Producto ordenado: ", productoOrdenado);
 productList.push({ id: 5, nombre: 'Producto 5', precio: 50, stock: 10 });
 console.log(productList)
 productList.pop()
@@ -133,13 +132,13 @@ const obtenerDatos = async()=>{
     }, 1000);
 }
 
-const data = await obtenerDatos();
-console.log(data)
+const datos = await obtenerDatos();
+console.log(datos)
 
 //Ejercicio 10
-
-const response = fetch("https://jsonplaceholder.typicode.com/users")
-console.log(response)
+const response = await fetch("https://jsonplaceholder.typicode.com/users");
+const data = await response.json();
+console.log(data);
 
 // Ejercicio 11
 
